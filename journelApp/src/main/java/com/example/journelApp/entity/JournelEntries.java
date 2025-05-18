@@ -1,18 +1,25 @@
 package com.example.journelApp.entity;
 
+import com.example.journelApp.JournelApplication;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.stereotype.Component;
 
+@Component
+@Document(collation = "Journel_entries")
 public class JournelEntries {
-    public long id;
+    @Id
+    public String id;
     @JsonProperty("Time")
     public String Time;
     public String msg;
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
