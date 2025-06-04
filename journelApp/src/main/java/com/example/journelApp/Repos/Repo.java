@@ -10,6 +10,4 @@ import java.util.Optional;
 
 @Component
 public interface Repo extends MongoRepository<JournelEntries,ObjectId > {
-
-
 }

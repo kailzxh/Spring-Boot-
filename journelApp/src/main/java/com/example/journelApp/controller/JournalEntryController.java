@@ -21,24 +21,19 @@ public class JournalEntryController {
         @GetMapping
         public List<JournelEntries> getAll(){
             return journalEntryService.getAll();
-
         }
 
         @PostMapping
         public  boolean createEntry(@RequestBody JournelEntries entry){
                 entry.setDate(LocalDateTime.now());
-            journalEntryService.saveEntry(entry);
-            return true;
+                journalEntryService.saveEntry(entry);
+                return true;
         }
-
-
-
 
         @GetMapping("/id/{myid}")
         public JournelEntries getById(@PathVariable ObjectId myid){
             return journalEntryService.getById(myid).orElse(null);
         }
-
 
         @PutMapping("/id/{myid}")
         public boolean update(@PathVariable ObjectId myid, @RequestBody JournelEntries newentry) {
@@ -52,7 +47,7 @@ public class JournalEntryController {
                         journalEntryService.saveEntry(old);
                         return true;
                 }
-                return false; // entry doesn't exist
+                return false;
         }
 
         @DeleteMapping("/id/{myid}")
@@ -61,5 +56,3 @@ public class JournalEntryController {
                 return true;
         }
 }
-
-

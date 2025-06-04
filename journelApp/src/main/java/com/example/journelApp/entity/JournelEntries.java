@@ -6,23 +6,17 @@ import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.stereotype.Component;
-
-import java.lang.classfile.instruction.StackInstruction;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Date;
-
 @Component
-@Document(collation = "Journel_entries")
+@Document(collection = "Journel_entries")
 public class JournelEntries {
     @Id
     private ObjectId id;
-    private String Title;
-    private String Content;
+    private String title;
+    private String content;
     private LocalDateTime date;
 
     public ObjectId getId() {
-
         return id;
     }
 
@@ -31,19 +25,19 @@ public class JournelEntries {
     }
 
     public String getTitle() {
-        return Title;
+        return title;
     }
 
     public void setTitle(String title) {
-        Title = title;
+        this.title = title;
     }
 
     public String getContent() {
-        return Content;
+        return content;
     }
 
     public void setContent(String content) {
-        Content = content;
+        this.content = content;
     }
 
     public LocalDateTime getDate() {
@@ -53,7 +47,4 @@ public class JournelEntries {
     public void setDate(LocalDateTime date) {
         this.date = date;
     }
-
-
-
 }
